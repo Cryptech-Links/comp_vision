@@ -20,6 +20,7 @@ namespace comp_vision
         VideoCapture capture_Video;
         Image<Bgr, Byte> ImageFrame;
         CascadeClassifier Classifier;
+        //Replace xml_file variable with the name of your xml file.
         string xml_file = "haarcascade_frontalface_default.xml", path = @"C:\Users\" + Environment.UserName + @"\Documents\computer vision - image output\";
         string xml_folder = @"C:\Users\" + Environment.UserName + @"\Documents\computer vision - xml_files\";
         bool save_objs, files_set;
@@ -34,6 +35,7 @@ namespace comp_vision
         {
             try
             {
+                //Camera starts
                 capture_Video = new VideoCapture(0);
                 Application.Idle += ProcessFrame;
             }
@@ -126,10 +128,11 @@ namespace comp_vision
             xml_selector.SelectedIndex = 0;
             startCamera();
         }
-
+        
+        //Method to check if xml files exist in "Documents/computer vision - xml_files" folder
         void check_xml_files()
         {
-            string[] xml = {"haarcascade_frontalface_default.xml", "haarcascade_eye.xml"};
+            string[] xml = {"haarcascade_frontalface_default.xml", "haarcascade_eye.xml"}; //add names of your xml file(s)
             foreach(string file in xml)
             {
                 try
